@@ -1,0 +1,49 @@
+## Automation Script Explained
+
+The `selenium-test.js` script automates the testing of the registration form using three distinct flows. Here’s a step-by-step breakdown of how it works:
+
+### 1. Setup
+
+-   **Driver Initialization:** The script begins by setting up a Selenium WebDriver for Chrome. It includes various options to run the browser in a clean and controlled environment.
+-   **Helper Functions:** It defines several helper functions like `typeText`, `clickElement`, and `selectDropdown` to simplify interactions with the web page.
+
+### 2. Test Flow A: Negative Scenario (Error State)
+
+This flow tests how the form handles invalid input.
+
+1.  **Navigate:** The script opens the registration form.
+2.  **Fill Form (Incomplete):** It fills out most of the fields but intentionally **skips the "Last Name"** field to trigger a validation error.
+3.  **Submit:** It clicks the "Register" button.
+4.  **Validation:** The script then checks if an error message for the "Last Name" field is displayed and if the input field is highlighted in red.
+5.  **Screenshot:** Finally, it captures a screenshot of the page, showing the error state.
+
+**Result of Test Flow A:**
+
+![Error State](flow-a-error-state.png)
+
+### 3. Test Flow B: Positive Scenario (Success State)
+
+This flow simulates a successful registration.
+
+1.  **Navigate:** It opens a fresh instance of the registration form.
+2.  **Fill Form (Complete):** The script fills in all the required fields with valid data.
+3.  **Submit:** It clicks the "Register" button.
+4.  **Validation:** It verifies that a "Registration Successful" message appears (either as a browser alert or a message on the page).
+5.  **Screenshot:** A screenshot is taken to document the successful submission.
+
+**Result of Test Flow B:**
+
+![Success State](flow-b-success-state.png)
+
+### 4. Test Flow C: Form Logic Validation
+
+This flow focuses on testing the form's dynamic features without a full submission.
+
+-   **Dropdown Logic:** It verifies that the "State" dropdown is enabled only after a country is selected, and the "City" dropdown is enabled after a state is selected.
+-   **Password Strength:** It tests the password strength meter by entering weak, medium, and strong passwords and checking the feedback.
+-   **Password Match:** It ensures that the form correctly identifies when the "Password" and "Confirm Password" fields do not match.
+-   **Other Validations:** It also runs checks for other logic, such as disposable email detection.
+
+### 5. Execution
+
+The `runAllTests` function orchestrates the entire process, running each test flow in sequence and closing the browser once all tests are complete.
