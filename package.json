@@ -1,0 +1,14 @@
+{
+  "name": "intelligent-registration-system",
+  "version": "1.0.0",
+  "description": "Modern registration system with Selenium automation",
+  "type": "module",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "test": "node selenium-test.js",
+    "test:headed": "node selenium-test.js --headed"
+  },
+  "devDependencies": {
+    "selenium-webdriver": "^4.38.0"
+  }
+}

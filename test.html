@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Test</title>
+</head>
+<body>
+    <h1>Registration Form Test</h1>
+    <form id="registrationForm">
+        <input type="text" id="firstName" placeholder="First Name">
+        <input type="text" id="lastName" placeholder="Last Name">
+        <span id="lastNameError" style="color: red;"></span>
+        <button type="submit">Submit</button>
+    </form>
+    
+    <script>
+        document.getElementById('registrationForm').onsubmit = function(e) {
+            e.preventDefault();
+            if (!document.getElementById('lastName').value) {
+                document.getElementById('lastNameError').textContent = 'Last Name is required';
+            } else {
+                alert('Success!');
+            }
+        };
+    </script>
+</body>
+</html>
